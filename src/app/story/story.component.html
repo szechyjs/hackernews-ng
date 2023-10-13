@@ -1,8 +1,12 @@
 <mat-list-item>
-  <span matListItemTitle>{{rank}}.
+  <div matListItemTitle>{{rank}}.
     <a [href]="story.url" target="_blank">{{story.title}}</a>
-    ({{domain(story.url)}})
-  </span>
-  <span matListItemLine>{{story.score}} points by {{story.by}} {{story.time * 1000 | timeago}} | {{story.descendants ||
-    0}} comments</span>
+    <span *ngIf="story.url" class="mat-small"> ({{domain(story.url)}})</span>
+  </div>
+  <div matListItemLine>
+    {{story.score}} points by
+    <a class="by" href="#">{{story.by}}</a>
+    {{story.time * 1000 | timeago}}
+    <a class="comments" href="#"> | {{story.descendants || 0}} comments</a>
+  </div>
 </mat-list-item>
