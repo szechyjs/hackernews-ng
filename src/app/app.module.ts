@@ -9,6 +9,8 @@ import { TimeagoModule } from 'ngx-timeago';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoryComponent } from './story/story.component';
+import { StoriesComponent } from './stories/stories.component';
 
 const fbConfig: FirebaseOptions = {
   databaseURL: 'https://hacker-news.firebaseio.com',
@@ -16,7 +18,9 @@ const fbConfig: FirebaseOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StoryComponent,
+    StoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,4 @@
+<mat-list>
+  <app-story *ngFor="let story of stories$ | async; trackBy: itemTrack; index as i" [story]="story"
+    [rank]="i + 1" [@inOutAnimation]></app-story>
+</mat-list>
