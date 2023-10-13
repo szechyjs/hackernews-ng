@@ -5,6 +5,7 @@
   <mat-list-item *ngFor="let story of stories$ | async; trackBy: itemTrack; index as i">
     <span matListItemTitle>{{i + 1}}.
       <a [href]="story.url" target="_blank">{{story.title}}</a>
+      ({{domain(story.url)}})
     </span>
     <span matListItemLine>{{story.score}} points by {{story.by}} {{story.time * 1000 | timeago}} | {{story.descendants || 0}} comments</span>
   </mat-list-item>

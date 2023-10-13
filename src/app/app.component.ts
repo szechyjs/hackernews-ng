@@ -50,4 +50,8 @@ export class AppComponent implements OnInit {
   itemTrack(index: number, item: Item) {
     return item.id;
   }
+
+  domain(url: string): string {
+    return new URL(url).hostname.replace(/^www\./i, '');
+  }
 }
