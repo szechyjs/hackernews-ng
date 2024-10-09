@@ -29,10 +29,11 @@ const fbConfig: FirebaseOptions = {
     MatToolbarModule,
     MatListModule,
     TimeagoModule.forRoot(),
+  ],
+  providers: [
     provideFirebaseApp(() => initializeApp(fbConfig)),
     provideDatabase(() => getDatabase())
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
