@@ -1,11 +1,11 @@
 <mat-list-item>
   <div matListItemTitle>{{rank}}.
-    <a [href]="story.url" target="_blank">{{story.title}}</a>
+    <a [href]="story.url" target="_blank" class="title">{{story.title}}</a>
     @if (story.url) {
       <span class="mat-small"> ({{domain(story.url)}})</span>
     }
   </div>
-  <div matListItemLine>
+  <div matListItemLine class="small">
     <span [@score]="story.score">{{story.score}}</span> points by
     <a class="by" href="#">{{story.by}}</a>
     {{story.time * 1000 | timeago}}

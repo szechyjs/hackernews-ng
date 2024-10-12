@@ -1,0 +1,8 @@
+<div class="comment">
+  <div class="small">
+    <span>&#x2022; </span>
+    <a class="by" href="#">{{comment.by}}</a>
+    <a class="ts" [routerLink]="['/item', comment.id]" >{{comment.time * 1000 | timeago}}</a>
+  </div>
+  <div [innerHTML]="comment.text"></div>
+</div>

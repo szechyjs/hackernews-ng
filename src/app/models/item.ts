@@ -1,14 +1,42 @@
-export interface Item {
+interface Base {
+  by: string;
   id: number;
   dead?: boolean;
   deleted?: boolean;
-  descendants?: number;
-  by: string;
-  kids: number[];
-  title: string;
-  score: number;
-  text?: string;
   time: number;
-  type: 'story' | 'job' | 'comment' | 'poll' | 'pollopt';
+}
+
+export interface Story extends Base {
+  descendants?: number;
+  kids: number[];
+  score: number;
+  title: string;
+  type: 'story';
   url: string;
 }
+
+export interface Comment extends Base {
+  kids: number[];
+  parent: number;
+  text: string;
+  type: 'comment';
+}
+
+export interface Ask extends Base {
+  descendants?: number;
+  kids: number[];
+  score: number;
+  text: string;
+  title: string;
+  type: 'story';
+}
+
+export interface Job extends Base {
+  score: number;
+  text: string;
+  title: string;
+  type: 'job';
+  url: string;
+}
+
+export type Item = Story | Comment | Ask | Job;

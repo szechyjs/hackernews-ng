@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { MatList } from '@angular/material/list';
 import { Observable } from 'rxjs';
-import { Item } from '../models/item';
+import { Item, Story } from '../models/item';
 import { HackerNewsService } from '../services/hacker-news.service';
 import { StoryComponent } from '../story/story.component';
 import { AsyncPipe } from '@angular/common';
@@ -34,10 +34,10 @@ import { AsyncPipe } from '@angular/common';
 })
 export class StoriesComponent {
   hackerNews = inject(HackerNewsService);
-  stories$: Observable<Item[]>;
+  stories$: Observable<Story[]>;
 
   constructor() {
-    this.stories$ = this.hackerNews.topStories();
+    this.stories$ = this.hackerNews.topStories() as Observable<Story[]>
   }
 
   itemTrack(index: number, item: Item) {

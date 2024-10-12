@@ -1,1 +1,17 @@
-<p>item works!</p>
+@let item = item$ | async;
+@if (item) {
+  @switch (item.type) {
+    @case ("story") {
+      @let story = storyCast(item);
+      <app-story [story]="story" />
+    }
+    @case ("comment") {
+      @let comment = commentCast(item);
+      <app-comment [comment]="comment" />
+    }
+  }
+
+  @for (desc of itemKids(item); track desc) {
+    <app-item [id]="desc"></app-item>
+  }
+}

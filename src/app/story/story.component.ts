@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Item } from '../models/item';
+import { Story } from '../models/item';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { RouterLink } from '@angular/router';
 import { TimeagoModule } from 'ngx-timeago';
@@ -22,7 +22,7 @@ import { MatListItem } from '@angular/material/list';
   ],
 })
 export class StoryComponent {
-  @Input() story!: Item;
+  @Input() story!: Story;
   @Input() rank!: number;
 
   domain(url: string): string {
