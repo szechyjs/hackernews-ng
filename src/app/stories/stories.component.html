@@ -1,4 +1,7 @@
-<mat-list @stagger *ngIf="stories$ | async as stories">
-  <app-story *ngFor="let story of stories; trackBy: itemTrack; index as i" [story]="story"
-    [rank]="i + 1"></app-story>
-</mat-list>
+@if(stories$ | async; as stories) {
+  <mat-list @stagger>
+    @for(story of stories; track itemTrack($index, story); let i = $index) {
+      <app-story [story]="story" [rank]="i + 1"></app-story>
+    }
+  </mat-list>
+}

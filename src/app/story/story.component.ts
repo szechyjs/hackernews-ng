@@ -1,9 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Item } from '../models/item';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { RouterLink } from '@angular/router';
+import { TimeagoModule } from 'ngx-timeago';
+import { MatListItem } from '@angular/material/list';
 
 @Component({
   selector: 'app-story',
+  standalone: true,
+  imports: [RouterLink, TimeagoModule, MatListItem],
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.scss'],
   animations: [

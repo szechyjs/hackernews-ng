@@ -1,11 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Database, limitToFirst, listVal, objectVal, query as dbQuery, ref } from '@angular/fire/database';
-import { Observable, combineLatest, switchMap } from 'rxjs';
+import { MatList } from '@angular/material/list';
+import { Observable } from 'rxjs';
 import { Item } from '../models/item';
+import { HackerNewsService } from '../services/hacker-news.service';
+import { StoryComponent } from '../story/story.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-stories',
+  standalone: true,
+  imports: [StoryComponent, MatList, AsyncPipe],
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],
   animations: [
@@ -28,20 +33,11 @@ import { Item } from '../models/item';
   ],
 })
 export class StoriesComponent {
-  private database: Database = inject(Database);
+  hackerNews = inject(HackerNewsService);
   stories$: Observable<Item[]>;
 
   constructor() {
-    const topStoriesRef = ref(this.database, '/v0/topstories');
-    const topQuery = dbQuery(topStoriesRef, limitToFirst(30));
-    this.stories$ = listVal<number>(topQuery).pipe(
-      switchMap((ids) => combineLatest(ids.map((id) => this.getItem(id))))
-    );
-  }
-
-  getItem(id: number): Observable<Item> {
-    const itemRef = ref(this.database, `/v0/item/${id}`);
-    return objectVal<Item>(itemRef);
+    this.stories$ = this.hackerNews.topStories();
   }
 
   itemTrack(index: number, item: Item) {

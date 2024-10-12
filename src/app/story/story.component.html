@@ -1,12 +1,14 @@
 <mat-list-item>
   <div matListItemTitle>{{rank}}.
     <a [href]="story.url" target="_blank">{{story.title}}</a>
-    <span *ngIf="story.url" class="mat-small"> ({{domain(story.url)}})</span>
+    @if (story.url) {
+      <span class="mat-small"> ({{domain(story.url)}})</span>
+    }
   </div>
   <div matListItemLine>
     <span [@score]="story.score">{{story.score}}</span> points by
     <a class="by" href="#">{{story.by}}</a>
     {{story.time * 1000 | timeago}}
-    <a class="comments" href="#"> | {{story.descendants || 0}} comments</a>
+    <a class="comments" [routerLink]="['/item', story.id]"> | {{story.descendants || 0}} comments</a>
   </div>
 </mat-list-item>
