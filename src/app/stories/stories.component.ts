@@ -19,14 +19,12 @@ import { AsyncPipe } from '@angular/common';
         query(':enter', [
           style({ opacity: 0 }),
           stagger(50, [
-            animate('1s ease-in', style({ opacity: 1 })),
+            animate('250ms ease-in', style({ opacity: 1 })),
           ]),
         ], { optional: true }),
         query(':leave', [
           style({ opacity: 1 }),
-          stagger(50, [
-            animate('1s ease-out', style({ opacity: 0 })),
-          ]),
+          animate('250ms ease-out', style({ opacity: 0 })),
         ], { optional: true }),
       ]),
     ]),

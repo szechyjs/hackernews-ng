@@ -11,7 +11,9 @@
     }
   }
 
+  <div @stagger>
   @for (desc of itemKids(item); track desc) {
     <app-item [id]="desc"></app-item>
   }
+  </div>
 }

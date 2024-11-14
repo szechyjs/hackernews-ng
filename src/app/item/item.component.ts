@@ -5,13 +5,26 @@ import { HackerNewsService } from '../services/hacker-news.service';
 import { Comment, Item, Story } from '../models/item';
 import { StoryComponent } from '../story/story.component';
 import { CommentComponent } from '../comment/comment.component';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-item',
   standalone: true,
   imports: [StoryComponent, AsyncPipe, CommentComponent],
   templateUrl: './item.component.html',
-  styleUrl: './item.component.scss'
+  styleUrl: './item.component.scss',
+  animations: [
+    trigger('stagger', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(50, [
+            animate('250ms ease-in', style({ opacity: 1 })),
+          ]),
+        ], { optional: true }),
+      ]),
+    ]),
+  ],
 })
 export class ItemComponent {
   hackerNews = inject(HackerNewsService);
