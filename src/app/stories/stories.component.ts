@@ -9,7 +9,6 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-stories',
-  standalone: true,
   imports: [StoryComponent, MatList, AsyncPipe],
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],

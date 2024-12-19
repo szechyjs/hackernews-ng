@@ -9,7 +9,6 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
 
 @Component({
   selector: 'app-item',
-  standalone: true,
   imports: [StoryComponent, AsyncPipe, CommentComponent],
   templateUrl: './item.component.html',
   styleUrl: './item.component.scss',

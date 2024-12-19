@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-comment',
-  standalone: true,
   imports: [TimeagoModule, RouterLink],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss'

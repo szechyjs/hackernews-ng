@@ -7,7 +7,6 @@ import { MatListItem } from '@angular/material/list';
 
 @Component({
   selector: 'app-story',
-  standalone: true,
   imports: [RouterLink, TimeagoModule, MatListItem],
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.scss'],
@@ -16,7 +15,7 @@ import { MatListItem } from '@angular/material/list';
       transition(':increment', animate('2s ease', keyframes([
         style({ transform: 'scale(1)', offset: 0 }),
         style({ transform: 'scale(1.5)', offset: 0.7 }),
-        style({ transform: 'scale(1)', offset: 1})
+        style({ transform: 'scale(1)', offset: 1 }),
       ])))
     ]),
   ],
