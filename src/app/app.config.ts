@@ -1,10 +1,10 @@
-import { ApplicationConfig } from '@angular/platform-browser';
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideFirebaseApp, initializeApp, FirebaseOptions } from '@angular/fire/app';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import { importProvidersFrom, isDevMode } from '@angular/core';
+import { importProvidersFrom, isDevMode, ApplicationConfig } from '@angular/core';
 
 import { routes } from './app.routes';
 import { TimeagoModule } from 'ngx-timeago';
